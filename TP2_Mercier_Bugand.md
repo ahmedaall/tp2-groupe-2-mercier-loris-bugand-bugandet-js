@@ -229,7 +229,7 @@ do
                 var2="37"
         fi
 
-        echo -e "$var2           \c"
+        echo -e "$var2       \c"
         for var in `seq 39 47`
         do
 
