@@ -192,3 +192,67 @@ echo "Max: $max; Min: $min; Moyenne: $average"
 ```
 
 # Exercice 8. Pour les plus rapides
+```bash
+#!/bin/bash
+
+s="               by js et lolo"
+echo "FG \ BG      40  41  42  43  44  45  46  47"
+for aaa in `seq 1 13`
+do
+        if [ $aaa -eq 1 ]; then
+                var2="1"
+        elif [ $aaa -eq 2 ]; then
+                var2="1"
+        elif [ $aaa -eq 3 ]; then
+                var2="4"
+        elif [ $aaa -eq 4 ]; then
+                var2="5"
+        elif [ $aaa -eq 5 ]; then
+                var2="7"
+        elif [ $aaa -eq 6 ]; then
+                var2="30"
+        elif [ $aaa -eq 7 ]; then
+                var2="31"
+        elif [ $aaa -eq 7 ]; then
+                var2="31"
+        elif [ $aaa -eq 8 ]; then
+                var2="32"
+        elif [ $aaa -eq 9 ]; then
+                var2="33"
+        elif [ $aaa -eq 10 ]; then
+                var2="34"
+        elif [ $aaa -eq 11 ]; then
+                var2="35"
+        elif [ $aaa -eq 12 ]; then
+                var2="36"
+        elif [ $aaa -eq 13 ]; then
+                var2="37"
+        fi
+
+        echo -e "$var2  \c"
+        for var in `seq 39 47`
+        do
+
+                couleur="\e["
+                couleur="${couleur}${var2}"
+                couleur="${couleur};${var}"
+                couleur="${couleur}m"
+                C="$couleur"
+                if [ $var -eq 39 ]; then
+                var="40"
+                couleur="\e["
+                couleur="${couleur}${var2}"
+                couleur="${couleur};${var}"
+                couleur="${couleur}m"
+                C="$couleur"
+                echo -e "${C}Bash\e[0m\c"
+                else
+                echo -e "${C}Bash\e[0m\c"
+                fi
+        done
+        echo ""
+done
+echo ""
+echo "$s"
+            
+```
