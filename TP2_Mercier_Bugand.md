@@ -18,9 +18,10 @@
 
 **4.** Pour créer la variable **My_Var** en bash il suffit de taper la commande _`MyVar='la valeur de la variable'`_. Nous pouvons vérifier son existance en utilisant la commande _`echo $My_Var`_.
 
-**5.** 
+**5.** La commande bash ouvre un nouveau niveau sur le shell. La variable MY_VAR n'existe pas car c'est une variable locale 
 
-**6.** 
+**6.** Je transforme MY_VAR en une variable d’environnement.
+`export MY_VAR="yes"` puis `printenv MY_VAR` et je vois yes qui apparait
 
 **7.** Pour créer la variable d'environnement **NOMS** on utilise la commande _`export NOMS='Mercier Bugand-Bugandet'`_ Ensuite il suffit de rentrer la commande _`echo $NOMS`_ pour verifier.
 
