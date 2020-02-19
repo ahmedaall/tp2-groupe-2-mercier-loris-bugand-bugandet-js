@@ -114,7 +114,26 @@ echo `fact $1`
 Pour créer le script **devine.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script`_) et faire un _`touch devine.sh`_. Ensuite, il faut donner au fichier les droit d'execution : _`sudo chmod +x devine.sh`_.
 Pour finir, entrez dans le fichier **devine.sh** ( _`nano devine.sh`_ ) et entre le code suivant :
 ```bash
-l
+#!/bin/bash
+result=$(( $RANDOM % 1000 + 1 ))
+echo $result
+var=11000
+while [ $var -ne $result ]
+do
+        echo "Entrez un nombre entre 1 et 1000 :"
+        read var
+        if [ $var -lt $result ]
+        then
+                echo"Cest plus !"
+        elif [ $var -gt  $result ]
+        then
+                echo "C'est moins !"
+        elif [ $var -eq $result ]
+        then
+                echo "C'est Gagné !"
+        fi
+done
+exit
 ```
 
 # Exercice 7. Statistiques
@@ -171,3 +190,5 @@ done
 let average=$total/${#arrayValues[@]}
 echo "Max: $max; Min: $min; Moyenne: $average"
 ```
+
+# Exercice 8. Pour les plus rapides
