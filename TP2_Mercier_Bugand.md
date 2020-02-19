@@ -31,3 +31,87 @@ sont vos deux noms) en utilisant la variable NOMS est la suivante : _`echo "Bonj
 
 **10.** la commande echo pour écrire exactement la phrase : $HOME = chemin (où chemin est votre
 dossier personnel d’après bash) est la suivante : _` echo "\$HOME = $HOME"`_
+
+# Programmation Bash
+* Pour créer le dossier **script** il suffit de renseigner la commande suivante : _`cd`_ puis _`mkdir script`_
+* Pour renseigner le chemin du dossier **script** dans la variable **PATH** il sufit d'ajouter le chemin de celui-ci depuis la racine faisant : _`sudo nano /etc/environnement`_
+
+## Exercice 2. Contrôle de mot de passe
+Pour créer le script **testpwd.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script `_) et faire un _`touch testpwd.sh`_. Ensuite, il faut donner au fichier les droit d'execution : `_sudo chmod +x testpwd.sh_`.
+Pour finir, entrez dans le fichier **testpwd.sh** ( _`nano testpwd.sh`_ ) et entre le code suivant :
+```bash
+#!/bin/bash
+echo "Entrez votre mot de passe :"
+read -s mdp
+if [ $mdp == "loris" ]
+then
+        echo "mot de passe correct"
+else
+        echo "mot de passe incorrect"  
+fi
+```
+
+## Exercice 3. Expressions rationnelles
+Pour créer le script **testnombre.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script `_) et faire un _`touch testnombre.sh`_. Ensuite, il faut donner au fichier les droit d'execution : _`sudo chmod +x testnombre.sh`_.
+Pour finir, entrez dans le fichier **testnombre.sh** ( _`nano testnombre.sh`_ ) et entre le code suivant :
+```bash
+#!/bin/bash
+function is_number()
+{
+        re='^[+-]?[0-9]+([.][0-9]+)?$'
+        if ! [[ $1 =~ $re ]] ; then
+                return 1
+        else
+                return 0
+        fi
+}
+is_number $1
+if [ "$?" == "0" ]
+then
+        echo "L'argument est bien un nombre réel"                                                                               
+else
+        echo "ERROR !!!"
+fi
+```
+
+## Exercice 4. Contrôle d’utilisateur
+Pour créer le script **testuser.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script`_) et faire un _`touch testuser.sh`_. Ensuite, il faut donner au fichier les droit d'execution : _`sudo chmod +x testuser.sh`_.
+Pour finir, entrez dans le fichier **testnombre.sh** ( _`nano testuser.sh`_ ) et entre le code suivant :
+```bash
+#!/bin/bash
+if [ "$#" == "1" ]
+then
+ if grep "$1" /etc/passwd > /dev/null
+    then
+        echo "l'utilisateur existe"
+    else
+        echo "l'utilisateur n'existe pas"
+    fi
+else
+ echo "Utilisation : ./${0##*/} nom_utilisateur"
+fi
+```
+
+## Exercice 5. Factorielle
+Pour créer le script **fact.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script`_) et faire un _`touch fact.sh`_. Ensuite, il faut donner au fichier les droit d'execution : _`sudo chmod +x fact.sh`_.
+Pour finir, entrez dans le fichier **fact.sh** ( _`nano fact.sh`_ ) et entre le code suivant :
+```bash
+#!/bin/sh 
+ 
+fact() { 
+        n=$1 
+        if [ $n -eq 0 ] 
+        then 
+                echo 1 
+        else 
+                echo $(( n * `fact $(( n - 1 ))` )) 
+        fi 
+} 
+echo `fact $1`
+```
+# Exercice 6. Le juste prix
+Pour créer le script **devine.sh**, il faut d'abord se déplacer dans le dossier /home/.../script (_`cd \home\...\script`_) et faire un _`touch devine.sh`_. Ensuite, il faut donner au fichier les droit d'execution : _`sudo chmod +x devine.sh`_.
+Pour finir, entrez dans le fichier **devine.sh** ( _`nano devine.sh`_ ) et entre le code suivant :
+```bash
+l
+```
